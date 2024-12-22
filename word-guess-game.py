@@ -39,7 +39,6 @@ st.write(f"Lives remaining: {st.session_state.lives}")
 # User input
 guess = st.text_input("Enter guess letter:").lower()
 submit = st.button("Submit Guess")
-reset = st.button("Reset Game")
 
 if submit and guess:
     if guess in st.session_state.word and guess not in st.session_state.correct_list:
@@ -67,6 +66,6 @@ if submit and guess:
         st.success(f"Congratulations! You've guessed the word: {st.session_state.word} 🎉")
     elif st.session_state.lives == 0:
         st.error(f"Game over! The word was: {st.session_state.word} 💀")
-
-if reset:
-    initialize_game()
+    reset = st.button("Reset Game")
+    if reset:
+        initialize_game()
